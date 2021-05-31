@@ -8,12 +8,12 @@ import {
 } from '@material-ui/core';
 
 import MUIDataTable from "mui-datatables"
-// import CustomFooter from "./CustomFooter";
 import TableFooter from '@material-ui/core/TableFooter';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
+import { data } from '../Data'
 
 
 /* Styles of foooter count */
@@ -28,6 +28,7 @@ const useStyles = makeStyles(theme => ({
         zIndex: 100,
     },
 }));
+
 export default function Table() {
 
     const [ageFilterChecked, setAgeFilterChecked] = useState(false);
@@ -40,6 +41,7 @@ export default function Table() {
         [classes.stickyFooterCell]: true,
     });
 
+    /* Difinition of Columns and their options */
     const columns = [
         { name: 'name', label: 'Name', filter: 'true' },
         {
@@ -130,31 +132,12 @@ export default function Table() {
         /* See if put more colms */
     ];
 
-    const data = [
-        { id: 1, email: "email1@test.com", salary: 1000, name: 'John McQueen', age: 35 },
-        { id: 2, email: "email2@test.com", salary: 1000, name: 'Mary Stones', age: 25 },
-        { id: 3, email: "email3@test.com", salary: 1000, name: 'Robert Fil', age: 27 },
-        { id: 4, email: "email4@test.com", salary: 1000, name: 'Roger Robson', age: 81 },
-        { id: 5, email: "email5@test.com", salary: 1000, name: 'Billary Konwik', age: 18 },
-        { id: 6, email: "email6@test.com", salary: 1000, name: 'Bob Martin', age: 18 },
-        { id: 7, email: "email7@test.com", salary: 1000, name: 'Matthew Richardson', age: 54 },
-        { id: 8, email: "email8@test.com", salary: 1000, name: 'Ritchie Peterson', age: 54 },
-        { id: 9, email: "email9@test.com", salary: 1000, name: 'Bryan Martin', age: 40 },
-        { id: 10, email: "email10@test.com", salary: 1000, name: 'Mark Martin', age: 44 },
-        { id: 11, email: "email11@test.com", salary: 1000, name: 'Michelle Sebastian', age: 24 },
-        { id: 12, email: "email12@test.com", salary: 1000, name: 'Michelle Sullivan', age: 61 },
-        { id: 13, email: "email13@test.com", salary: 1000, name: 'Jordan Bike', age: 16 },
-        { id: 14, email: "email14@test.com", salary: 1000, name: 'Nelson Ford', age: 34 },
-        { id: 15, email: "email15@test.com", salary: 1000, name: 'Tim Cheap', age: 3 },
-        { id: 16, email: "email16@test.com", salary: 1000, name: 'Robert Carlson', age: 31 },
-        { id: 17, email: "email17@test.com", salary: 1000, name: 'Johny Perterson', age: 40 },
-    ];
-    
+
+
     const options = {
         filter: true,
         filterType: 'multiselect',
         responsive: 'vertical',
-        /* tableBodyHeight: '500px', */
         rowsPerPage: 50,
         pagination: 'false',
         selectableRows: false,
@@ -201,4 +184,3 @@ export default function Table() {
         </div>
     )
 }
-
